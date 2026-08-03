@@ -146,21 +146,6 @@
     overflow:hidden;
     z-index:2;
   }
-  .phone-frame::before{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      radial-gradient(ellipse at 68% 18%, rgba(255,226,180,0.55), transparent 42%),
-      linear-gradient(200deg,#C9B084,#8F7148 55%, #5B4529 100%);
-  }
-  .phone-frame::after{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      repeating-linear-gradient(90deg, rgba(20,16,12,0.12) 0 3px, transparent 3px 46px),
-      linear-gradient(0deg, rgba(15,12,10,0.72), transparent 48%),
-      linear-gradient(180deg, rgba(15,12,10,0.35), transparent 30%);
-  }
   .phone-frame .grain{
     position:absolute; inset:0; opacity:0.22; mix-blend-mode:overlay; z-index:1;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
