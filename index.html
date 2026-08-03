@@ -222,7 +222,7 @@
   }
   .listing-media .play svg{ width:12px; height:12px; fill:#fff; margin-left:2px; }
   .listing-media::after{
-    content:""; position:absolute; inset:0;
+    content:""; position:absolute; inset:0; pointer-events:none;
     background:linear-gradient(0deg, rgba(42,36,32,0.32), transparent 50%);
   }
   .l1{ background:linear-gradient(160deg,#E4D8C2,#C9AE83); }
@@ -397,17 +397,17 @@
     <div class="listings">
       <div class="listing">
         <div class="listing-media l1">
-          <div class="notch"></div>
-          <div class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></div>
+          <iframe src="https://drive.google.com/file/d/1DXSp6IBXUUBcFYhMjqFi7dnaMODYowaQ/preview" allow="autoplay" style="position:absolute; inset:0; width:100%; height:100%; border:0; z-index:0;"></iframe>
+          <div class="notch" style="pointer-events:none;"></div>
         </div>
         <div class="listing-info">
-          <span class="mono">Listing No. 001 · Quezon City</span>
-          <h3>Casa Verde Townhouse</h3>
-          <p>Full property walkthrough edited from raw gimbal and drone footage, paced to lead the buyer room by room, closing on the garden view.</p>
+          <span class="mono">Listing No. 001 · DMCI Homes</span>
+          <h3>The Oriana</h3>
+          <p>An immersive look inside The Oriana, thoughtfully paced to highlight the property's design, flow, and character.</p>
           <div class="spec-row">
-            <div class="spec"><span class="mono">Type</span><span class="val">Walkthrough</span></div>
-            <div class="spec"><span class="mono">Runtime</span><span class="val">2:14</span></div>
-            <div class="spec"><span class="mono">Delivered</span><span class="val">4K / 24fps</span></div>
+            <div class="spec"><span class="mono">Type</span><span class="val">Video Ad</span></div>
+            <div class="spec"><span class="mono">Runtime</span><span class="val">1:16</span></div>
+            <div class="spec"><span class="mono">Delivered</span><span class="val">4K / 30fps</span></div>
           </div>
         </div>
       </div>
