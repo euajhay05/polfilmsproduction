@@ -57,7 +57,8 @@
   }
   nav .logo{ font-family:'Fraunces', serif; font-style:italic; font-size:20px; }
   nav ul{ list-style:none; display:flex; gap:36px; }
-  nav a{ font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; }
+  nav a{ font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.12em; transition:color .2s ease; }
+  nav a:hover{ color:var(--brass-deep); }
 
   /* HERO */
   .hero{
@@ -67,8 +68,8 @@
     align-items:stretch;
   }
   .hero-text{
-    display:flex; flex-direction:column; justify-content:center;
-    padding:0 60px 0 40px;
+    display:flex; flex-direction:column; justify-content:flex-start;
+    padding:15vh 60px 0 40px;
     position:relative;
   }
   .hero-eyebrow{
@@ -76,8 +77,8 @@
   }
   .hero-eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--sage); }
   .hero h1{
-    font-size:clamp(40px, 5vw, 72px);
-    line-height:1.12;
+    font-size:clamp(44px, 5.6vw, 80px);
+    line-height:1.1;
     letter-spacing:-0.01em;
     font-weight:400;
     color:#3B322A;
@@ -86,11 +87,18 @@
     font-style:italic; font-weight:400; color:var(--brass-deep);
   }
   .hero p.lede{
-    max-width:440px; margin-top:26px;
-    color:var(--ink-soft); font-size:16px; line-height:1.65;
+    max-width:470px; margin-top:26px;
+    color:var(--ink-soft); font-size:17.5px; line-height:1.65;
   }
   .hero-cta{
     display:flex; gap:14px; margin-top:44px;
+  }
+  .hero-credibility{
+    margin-top:32px; display:flex; flex-direction:column; gap:6px;
+  }
+  .hero-credibility span{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; text-transform:uppercase;
+    letter-spacing:0.1em; color:var(--ink-soft); opacity:0.75;
   }
   .btn{
     font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.12em;
@@ -111,25 +119,51 @@
     display:flex; align-items:center; justify-content:center;
     padding:60px 40px;
   }
+  .hero-media::before{
+    content:"";
+    position:absolute; inset:0; pointer-events:none;
+    background-image:
+      radial-gradient(circle at 78% 68%, rgba(255,255,255,0.14), transparent 40%),
+      radial-gradient(circle at 12% 85%, rgba(42,36,32,0.16), transparent 45%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 5px);
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute; inset:0; pointer-events:none; opacity:0.5; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
   /* portrait "phone" frame — matches the vertical footage this is actually built from */
   .phone-frame{
     position:relative;
-    width:min(280px, 78%);
+    width:min(330px, 88%);
     aspect-ratio:9/16;
     border-radius:18px;
     background:linear-gradient(165deg,#3A322A,#211C18);
-    box-shadow:0 40px 70px -20px rgba(20,16,12,0.45), 0 0 0 6px rgba(251,248,242,0.9);
+    box-shadow:
+      0 45px 80px -18px rgba(20,16,12,0.5),
+      0 0 90px -10px rgba(164,123,74,0.4),
+      0 0 0 6px rgba(251,248,242,0.9);
     overflow:hidden;
+    z-index:2;
   }
   .phone-frame::before{
     content:"";
     position:absolute; inset:0;
-    background:linear-gradient(200deg,#C9B084,#8F7148 65%, #6E5636);
+    background:
+      radial-gradient(ellipse at 68% 18%, rgba(255,226,180,0.55), transparent 42%),
+      linear-gradient(200deg,#C9B084,#8F7148 55%, #5B4529 100%);
   }
   .phone-frame::after{
     content:"";
     position:absolute; inset:0;
-    background:linear-gradient(0deg, rgba(20,16,12,0.55), transparent 42%);
+    background:
+      repeating-linear-gradient(90deg, rgba(20,16,12,0.12) 0 3px, transparent 3px 46px),
+      linear-gradient(0deg, rgba(15,12,10,0.72), transparent 48%),
+      linear-gradient(180deg, rgba(15,12,10,0.35), transparent 30%);
+  }
+  .phone-frame .grain{
+    position:absolute; inset:0; opacity:0.22; mix-blend-mode:overlay; z-index:1;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .phone-frame .notch{
     position:absolute; top:12px; left:50%; transform:translateX(-50%);
@@ -335,17 +369,22 @@
   <div class="hero-text">
     <div class="hero-eyebrow">
       <span class="dot"></span>
-      <span class="mono">Real Estate Film Editor — Philippines</span>
+      <span class="mono">Real Estate Film Editor · Philippines</span>
     </div>
     <h1>Homes,<br><em>edited</em> to<br>feel lived in.</h1>
-    <p class="lede">I cut property walkthroughs, listing films, and social reels that make buyers slow their scroll — built from raw footage into a story worth touring.</p>
+    <p class="lede">I turn raw property footage into cinematic walkthroughs, listing films, and social reels designed to hold attention and inspire inquiries.</p>
     <div class="hero-cta">
-      <a href="#work" class="btn btn-solid">View Listings ↓</a>
-      <a href="#contact" class="btn btn-line">Book Your Shoot</a>
+      <a href="#work" class="btn btn-solid">View My Work</a>
+      <a href="#contact" class="btn btn-line">Start a Project</a>
+    </div>
+    <div class="hero-credibility">
+      <span>Property Walkthroughs · Listing Films · Social Reels</span>
+      <span>Based in the Philippines · Available Worldwide</span>
     </div>
   </div>
   <div class="hero-media">
     <div class="phone-frame">
+      <div class="grain"></div>
       <div class="notch"></div>
       <div class="play" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg>
@@ -472,8 +511,8 @@
         <div class="process-media p1">
           <span class="step-badge">Step 1</span>
         </div>
-        <h3>Book Your Shoot</h3>
-        <p>Message me your property details and preferred date — I'll confirm a slot within the day.</p>
+        <h3>Start a Project</h3>
+        <p>Message me about your listing and preferred turnaround — I'll confirm the scope within the day.</p>
       </div>
       <div class="process-card">
         <div class="process-media p2">
@@ -486,8 +525,8 @@
         <div class="process-media p3">
           <span class="step-badge">Step 3</span>
         </div>
-        <h3>Footage Comes In</h3>
-        <p>Raw walkthrough and drone footage gets sent over, ready for editing to begin.</p>
+        <h3>Send Over Your Footage</h3>
+        <p>Share your raw walkthrough and drone clips through your preferred file-sharing link.</p>
       </div>
       <div class="process-card">
         <div class="process-media p4">
